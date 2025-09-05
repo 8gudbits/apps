@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>HashIn - Secure File Hasher</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <div class="logo"><i class="fas fa-fingerprint"></i></div>
+        <h1>HashIn</h1>
+        <p class="subtitle">Secure file hashing made simple</p>
+      </header>
+
+      <div class="card algorithm-selector">
+        <label for="algorithm">
+          <i class="fas fa-lock"></i>Hashing Algorithm
+        </label>
+
+        <select id="algorithm" class="algorithm-select">
+          <option value="MD5">MD5</option>
+          <option value="SHA1">SHA-1</option>
+          <option value="SHA256" selected>SHA-256</option>
+          <option value="SHA384">SHA-384</option>
+          <option value="SHA512">SHA-512</option>
+          <option value="SHA3-224">SHA3-224</option>
+          <option value="SHA3-256">SHA3-256</option>
+          <option value="SHA3-384">SHA3-384</option>
+          <option value="SHA3-512">SHA3-512</option>
+          <option value="RIPEMD160">RIPEMD-160</option>
+        </select>
+      </div>
+
+      <div class="file-input-area">
+        <div id="dropzone" class="dropzone">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <div class="main-text">Drop your file here</div>
+          <div class="hint">or click to browse your files</div>
+          <input type="file" id="fileInput" class="file-input" />
+        </div>
+
+        <button id="mobileButton" class="mobile-button">
+          <i class="fas fa-file-upload"></i> Select File to Hash
+        </button>
+
+        <div class="file-progress" id="fileProgress">
+          <div class="file-progress-bar" id="fileProgressBar"></div>
+        </div>
+      </div>
+
+      <div class="spinner" id="spinner"></div>
+
+      <div id="results" class="results">
+        <div class="file-info">
+          <div class="file-icon">
+            <i class="fas fa-file"></i>
+          </div>
+          <div class="file-details">
+            <div id="filename" class="filename"></div>
+            <div id="filesize" class="file-size"></div>
+          </div>
+        </div>
+
+        <span class="hash-label">Hash Result (<span id="algorithmName">SHA-256</span>):</span>
+        <div id="hash" class="hash-result"></div>
+
+        <div class="action-buttons">
+          <button id="copyButton" class="copy-btn">
+            <i class="fas fa-copy"></i> Copy to Clipboard
+          </button>
+          <button id="newFileButton" class="new-file-btn">
+            <i class="fas fa-plus"></i> New File
+          </button>
+        </div>
+      </div>
+
+      <div id="copyNotification" class="copy-notification">
+        <span>Copied to clipboard!</span>
+      </div>
+    </div>
+
+    <script src="js/crypto-js.min.js"></script>
+    <script src="js/sha3.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
+
